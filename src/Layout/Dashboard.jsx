@@ -1,9 +1,18 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
+import { useContext } from "react";
+import { AuthContext } from "../Components/AuthProvider/AuthProvider";
 
 
 const Dashboard = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch()
+            Navigate(location?.state ? location.state : "/")
+    }
     return (
         <DndProvider backend={HTML5Backend}>
             <div>
@@ -14,21 +23,23 @@ const Dashboard = () => {
                         <h2 className="text-3xl font-bold uppercase">Task<span className="text-teal-500">Burst</span></h2>
                     </div>
                     <ul className="menu text-lg">
-                        <li><Link to="/dashboard/userProfile">
+                        <li className="bg-teal-300 rounded-lg"><Link to="/dashboard/userProfile">
                             Create</Link>
                         </li>
-                        <li><Link to="/dashboard/todo">
+                        <li className="bg-teal-300 rounded-lg mt-3"><Link to="/dashboard/todo">
                             Todo List</Link>
                         </li>
-                        <li><Link to="/dashboard/ongoing">
+                        <li className="bg-teal-300 rounded-lg mt-3"><Link to="/dashboard/ongoing">
                             Ongoing Task</Link>
                         </li>
-                        <li><Link to="/dashboard/completed">
+                        <li className="bg-teal-300 rounded-lg mt-3"><Link to="/dashboard/completed">
                             Completed Task</Link>
                         </li>
-                        <li><Link to="/">
+                        <div className="divider"></div> 
+                        <li className="bg-teal-300 rounded-lg mt-3"><Link to="/">
                             Home</Link>
                         </li>
+                        <li onClick={handleLogOut} className="bg-red-300 rounded-lg mt-3 btn "> Sign Out</li>
                        
                     </ul>
                 </div>
