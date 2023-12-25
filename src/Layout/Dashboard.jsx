@@ -14,15 +14,19 @@ const Dashboard = () => {
                         <li><Link to="/dashboard/userProfile">
                             Create</Link>
                         </li>
+                        <li><Link to="/dashboard/todo">
+                            Todo List</Link>
+                        </li>
+                        <li><Link to="/dashboard/ongoing">
+                            Ongoing Task</Link>
+                        </li>
+                        <li><Link to="/dashboard/completed">
+                            Completed Task</Link>
+                        </li>
                         <li><Link to="/">
                             Home</Link>
                         </li>
-                        <li><Link to="/dashboard/users">
-                            Manage Users </Link>
-                        </li>
-                        <li><Link to="/dashboard/coupon">
-                            Manage Coupons </Link>
-                        </li>
+                       
                     </ul>
                 </div>
                 {/* dashboard content */}
