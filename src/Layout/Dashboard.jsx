@@ -7,8 +7,8 @@ const Dashboard = () => {
     return (
         <DndProvider backend={HTML5Backend}>
             <div>
-            <div className="flex">
-                <div className="w-64 min-h-screen bg-red-100 p-4">
+            <div className="lg:flex">
+                <div className="lg:w-64 min-h-screen bg-red-100 p-4">
                     <div className="text-center mb-10">
                         {/* <img src={logo} className='w-20' alt="" /> */}
                         <h2 className="text-3xl font-bold uppercase">Task<span className="text-teal-500">Burst</span></h2>
