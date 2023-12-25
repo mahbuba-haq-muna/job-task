@@ -15,11 +15,15 @@ import UserProfile from './Components/Dashboard/UserProfile';
 import TodoList from './Components/Dashboard/TodoList';
 import Ongoing from './Components/Dashboard/Ongoing';
 import Completed from './Components/Dashboard/Completed';
+import PrivateRoute from './Layout/PrivateRoute/PrivateRout';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
+import About from './Pages/About/About';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -32,12 +36,16 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/about",
+        element: <About></About>
       }
     ]
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: "/dashboard/userProfile",

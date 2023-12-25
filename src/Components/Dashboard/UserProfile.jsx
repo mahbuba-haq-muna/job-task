@@ -1,4 +1,5 @@
 
+import { ToastContainer, toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 
@@ -15,12 +16,12 @@ const UserProfile = () => {
         const date = form.date.value;
         const priority = form.priority.value;
 
-        const newTask = { description, title, date, priority};
+        const newTask = { description, title, date, priority };
         console.log(newTask);
 
         // send data 
 
-        fetch('http://localhost:5000/createTask', {
+        fetch('https://job-task-server-woad-tau.vercel.app/createTask', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -32,11 +33,12 @@ const UserProfile = () => {
                 console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
-                        title: 'Success!',
-                        text: 'Task Added Successfully',
+                        position: 'top-end',
                         icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
+                        title: 'task created successfully.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
             })
     }
@@ -46,7 +48,7 @@ const UserProfile = () => {
         <div>
             <div className="hero min-h-screen ">
                 <div className="lg:w-2/3 mx-auto py-10 bg-base-100 ">
-                    <h1 className="text-5xl font-bold text-center">Login now!</h1>
+                    <h1 className="md:text-4xl font-bold text-center">Create Task</h1>
                     <form onSubmit={handleAddTask} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -64,7 +66,7 @@ const UserProfile = () => {
                             <label className="label">
                                 <span className="label-text">Deadline</span>
                             </label>
-                            <input type="date" name="date"  className="input input-bordered" required />
+                            <input type="date" name="date" className="input input-bordered" required />
                         </div>
 
 
@@ -76,9 +78,9 @@ const UserProfile = () => {
                                 type="text" name="priority" className="input input-bordered"
                             >
                                 <option value="">Select your priority</option>
-                                <option value="Developer">High</option>
-                                <option value="Corporate Officer">Medium</option>
-                                <option value="Banker">Low</option>
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
                             </select>
                         </div>
 

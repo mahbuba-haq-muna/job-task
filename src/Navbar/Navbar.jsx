@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../Components/AuthProvider/AuthProvider";
 import { FaUser } from "react-icons/fa";
 
@@ -14,12 +14,13 @@ const Navbar = () => {
         logOut()
             .then()
             .catch()
+            Navigate(location?.state ? location.state : "/")
     }
 
     const navLinks = <>
         <li><Link to={"/"}>Home</Link></li>
         <li><Link to={"/dashboard"}>Dashboard</Link></li>
-        <li><Link to={"/"}>Home</Link></li>
+        <li><Link to={"/about"}>About Us</Link></li>
         
     </>
     return (

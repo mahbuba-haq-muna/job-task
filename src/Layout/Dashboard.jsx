@@ -1,9 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 
 const Dashboard = () => {
     return (
-        <div>
+        <DndProvider backend={HTML5Backend}>
+            <div>
             <div className="flex">
                 <div className="w-64 min-h-screen bg-red-100 p-4">
                     <div className="text-center mb-10">
@@ -35,6 +38,8 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
+        </DndProvider>
+        
     );
 };
 
