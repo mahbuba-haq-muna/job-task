@@ -1,0 +1,13 @@
+.banner-bg {
+    background-image: url(../../assets/banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-bg {
+    background-image: url(../../assets/l.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
