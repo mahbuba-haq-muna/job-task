@@ -11,6 +11,7 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AuthProvider from './Components/AuthProvider/AuthProvider';
 import Dashboard from './Layout/Dashboard';
+import UserProfile from './Components/Dashboard/UserProfile';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "/dashboard/userProfile",
+        element: <UserProfile></UserProfile>
+      }
+    ]
   }
 ]);
 
